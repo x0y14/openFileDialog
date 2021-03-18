@@ -14,6 +14,9 @@
       <excludeFolder url="file://$MODULE_DIR$/example/linux/flutter/ephemeral/.plugin_symlinks/open_file_dialog/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/linux/flutter/ephemeral/.plugin_symlinks/open_file_dialog/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/example/linux/flutter/ephemeral/.plugin_symlinks/open_file_dialog/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/open_file_dialog/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/open_file_dialog/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/macos/Flutter/ephemeral/.symlinks/plugins/open_file_dialog/.dart_tool" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />

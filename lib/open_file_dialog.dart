@@ -12,11 +12,20 @@ class OpenFileDialog {
   }
 
   static Future<List<String>?> openFileDialog(String rootPath) async {
-    var result = await _channel.invokeMethod('openFileDialog', {'rootPath': rootPath});
-    if (result == null) {
-      return null;
+    var p = '/';
+    if (rootPath != '') {
+      p = rootPath;
+    }
+
+    if (Directory(p).exists()) {
+      var result = await _channel.invokeMethod('openFileDialog', {'rootPath': p});
+      if (result == null) {
+        return null;
+      } else {
+        return result.cast<String>();
+      }
     } else {
-      return result.cast<String>();
+      return null;
     }
   }
 }
