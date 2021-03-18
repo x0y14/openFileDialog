@@ -25,7 +25,7 @@ public class OpenFileDialogPlugin: NSObject, FlutterPlugin {
     }
   }
     
-    func openFileDialog(_ rootPath: String) -> String? {
+    func openFileDialog(_ rootPath: String) -> [String]? {
         let dialog = NSOpenPanel();
         dialog.showsResizeIndicator    = true;
         dialog.showsHiddenFiles        = false;
@@ -36,15 +36,14 @@ public class OpenFileDialogPlugin: NSObject, FlutterPlugin {
         let expandedLauncherLogPath = launcherLogPathWithTilde.expandingTildeInPath
         dialog.directoryURL = NSURL.fileURL(withPath: expandedLauncherLogPath, isDirectory: true)
 
+        var paths: [String] = []
+
         if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
-            let result = dialog.url // Pathname of the file
-            if (result != nil) {
-                let path: String = result!.path
-                return path
-            } else {
-                // canncelled
-                return nil
+            let urls = dialog.urls
+            for p in urls {
+                paths.append(p.path)
             }
+            return paths
         } else {
             return nil
         }

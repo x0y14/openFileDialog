@@ -11,8 +11,12 @@ class OpenFileDialog {
     return version;
   }
 
-  static Future<String?> openFileDialog(String rootPath) async {
-    final String path = await _channel.invokeMethod('openFileDialog', {'rootPath': rootPath});
-    return path;
+  static Future<List<String>?> openFileDialog(String rootPath) async {
+    var result = await _channel.invokeMethod('openFileDialog', {'rootPath': rootPath});
+    if (result == null) {
+      return null;
+    } else {
+      return result.cast<String>();
+    }
   }
 }

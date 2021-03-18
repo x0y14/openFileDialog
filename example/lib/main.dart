@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
               Text('Running on: $_platformVersion\n'),
               TextButton(
                   onPressed: () async {
-                    var path = await OpenFileDialog.openDialog('/');
+                    var path = await OpenFileDialog.openFileDialog('/');
                     print(path);
                   },
                   child: Text('open file or dir'))
