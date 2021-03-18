@@ -17,7 +17,7 @@ class OpenFileDialog {
       p = rootPath;
     }
 
-    if (Directory(p).exists()) {
+    if (await Directory(p).exists()) {
       var result = await _channel.invokeMethod('openFileDialog', {'rootPath': p});
       if (result == null) {
         return null;
