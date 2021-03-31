@@ -28,4 +28,19 @@ class OpenFileDialog {
       return null;
     }
   }
+
+  static Future<String?> openSaveDialog(String rootPath) async {
+    var p = '/';
+    if (rootPath != '') {
+      p = rootPath;
+    }
+
+    var result = await _channel.invokeMethod('openSaveDialog', {'rootPath': p});
+    if (result == null) {
+      return null;
+    } else {
+      return result.cast<String>();
+    }
+  }
+
 }

@@ -20,6 +20,13 @@ public class OpenFileDialogPlugin: NSObject, FlutterPlugin {
             rootPath = unwrapped as! String
         }
         result(self.openFileDialog(rootPath))
+    case "openSaveDialog":
+        var rootPath = "/"
+        let arguments = call.arguments as! [String: Any]
+        if let unwrapped = arguments["rootPath"] {
+            rootPath = unwrapped as! String
+        }
+        result(self.openSaveDialog(rootPath))
     default:
       result(FlutterMethodNotImplemented)
     }
@@ -48,4 +55,20 @@ public class OpenFileDialogPlugin: NSObject, FlutterPlugin {
             return nil
         }
     }
+
+    func openSaveDialog(_ rootPath: String) -> String? {
+        let dialog = NSSavePanel();
+        dialog.allowsOtherFileTypes = true;
+        dialog.canCreateDirectories = true;
+        let launcherLogPathWithTilde = rootPath as NSString;
+        let expandedLauncherLogPath = launcherLogPathWithTilde.expandingTildeInPath
+        dialog.directoryURL = NSURL.fileURL(withPath: expandedLauncherLogPath, isDirectory: true);
+
+        if (dialog.runModal() ==  NSApplication.ModalResponse.OK){
+            let url = dialog.url
+            return url!.path;
+        } else {
+            return nil;
+            }
+        }
 }

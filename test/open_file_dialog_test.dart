@@ -22,7 +22,7 @@ void main() async {
   // });
   test('openFileDialog', () async {
     expect(
-      await OpenFileDialog.openDialog('/Users/x0y14/dev/dart/Editor/open_file_dialog/lib/'), '/Users/x0y14/dev/dart/Editor/open_file_dialog/lib/open_file_dialog.dart'
+      await OpenFileDialog.openFileDialog('/Users/x0y14/dev/dart/Editor/open_file_dialog/lib/'), '/Users/x0y14/dev/dart/Editor/open_file_dialog/lib/open_file_dialog.dart'
     );
   });
   // await OpenFileDialog.openFileDialog('/Users/x0y14/dev/dart/Editor/open_file_dialog/lib/')
