@@ -39,7 +39,7 @@ class OpenFileDialog {
     if (result == null) {
       return null;
     } else {
-      return result.cast<String>();
+      return result;
     }
   }
 
